@@ -99,24 +99,24 @@
 
 
 
-  <meta name="description" content="I have started learning OpenFOAM for nearly 4 months. During these months, I found out how annoying and how interesting an open source software can be. As a result, I decided to build a blog to record">
+  <meta name="description" content="A summary of FAQ that I met when installing OpenFOAM and third parties is made here.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World !">
-<meta property="og:url" content="http://yoursite.com/2019/01/18/hello-world/index.html">
+<meta property="og:title" content="Summary of OpenFOAM Installation FAQ">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/index.html">
 <meta property="og:site_name" content="JXJ Blog">
-<meta property="og:description" content="I have started learning OpenFOAM for nearly 4 months. During these months, I found out how annoying and how interesting an open source software can be. As a result, I decided to build a blog to record">
+<meta property="og:description" content="A summary of FAQ that I met when installing OpenFOAM and third parties is made here.">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-01-18T14:41:50.349Z">
+<meta property="og:updated_time" content="2019-01-20T13:16:06.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World !">
-<meta name="twitter:description" content="I have started learning OpenFOAM for nearly 4 months. During these months, I found out how annoying and how interesting an open source software can be. As a result, I decided to build a blog to record">
+<meta name="twitter:title" content="Summary of OpenFOAM Installation FAQ">
+<meta name="twitter:description" content="A summary of FAQ that I met when installing OpenFOAM and third parties is made here.">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/18/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>Hello World ! | JXJ Blog</title>
+  <title>Summary of OpenFOAM Installation FAQ | JXJ Blog</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ji Xinjie">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World !</h1>
+          <h1 class="post-title" itemprop="name headline">Summary of OpenFOAM Installation FAQ</h1>
         
 
         <div class="post-meta">
@@ -304,7 +304,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-18T22:41:50+08:00">2019-01-18</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T20:28:26+08:00">2019-01-20</time>
             
 
             
@@ -341,11 +341,18 @@
       
 
       
-        <p>I have started learning OpenFOAM for nearly 4 months. During these months, I found out how annoying and how interesting an open source software can be. As a result, I decided to build a blog to record some of my experience and growth. On the other hand, I will try to write my blog all in English for training.   </p>
-<h2 id="Declaration"><a href="#Declaration" class="headerlink" title="Declaration"></a>Declaration</h2><p>It is a personal blog and only represents personal opinions. It is only  used for recording personal study.</p>
-<h2 id="Main-Contents"><a href="#Main-Contents" class="headerlink" title="Main Contents"></a>Main Contents</h2><p>1.Usage of OpenFOAM and related implements<br>2.Usage of FLUENT and related softwares<br>3.Basic knowledge of CFD<br>4.Basic knowledge about Naval Architectural and Ocean Engineering<br>5.Basic usage of Linux system</p>
-<h2 id="Personal-Information"><a href="#Personal-Information" class="headerlink" title="Personal Information"></a>Personal Information</h2><p>Name: Ji Xinjie 季欣洁<br>Education: postgraduate student<br>Organization: Tianjin University<br>E-mail: <a href="mailto:ji_xinjie@163.com" target="_blank" rel="noopener">ji_xinjie@163.com</a></p>
-<p>Welcome to contact me with e-mail!</p>
+        <p>A summary of FAQ that I met when installing OpenFOAM and third parties is made here. <a id="more"></a></p>
+<h1 id="Installing-old-version-of-OpenFOAM-on-new-version-of-Ubuntu"><a href="#Installing-old-version-of-OpenFOAM-on-new-version-of-Ubuntu" class="headerlink" title="Installing old version of OpenFOAM on new version of Ubuntu"></a>Installing old version of OpenFOAM on new version of Ubuntu</h1><h2 id="1-Degrade-the-version-of-gcc-gcc-4-8-is-used-for-example"><a href="#1-Degrade-the-version-of-gcc-gcc-4-8-is-used-for-example" class="headerlink" title="1. Degrade the version of gcc (gcc-4.8 is used for example)"></a>1. Degrade the version of gcc (gcc-4.8 is used for example)</h2><p>Firstly, install gcc-4.8 with the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install gcc-4.8</span><br></pre></td></tr></table></figure></p>
+<p>Secondly, set the default gcc version:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ gcc --version </span><br><span class="line"># view the current gcc version</span><br><span class="line"></span><br><span class="line">$ ls /usr/bin/gcc* </span><br><span class="line"># view the gcc versions that we have</span><br><span class="line"></span><br><span class="line">$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 100</span><br><span class="line"># Raise the priority of gcc-4.8 to 100</span><br><span class="line"></span><br><span class="line">$ sudo update-alternatives --config gcc</span><br></pre></td></tr></table></figure></p>
+<p>That’s all. We can type in <code>gcc --version</code> again to make sure the version of gcc is degraded.</p>
+<h2 id="2-Degrade-the-version-of-g"><a href="#2-Degrade-the-version-of-g" class="headerlink" title="2. Degrade the version of g++"></a>2. Degrade the version of g++</h2><p>Just refer to the method of degrading gcc and replace all the ‘gcc’ with ‘g++’.</p>
+<h2 id="3-Degrade-the-version-of-flex-found-necessary-in-OpenFOAM-3-0-0"><a href="#3-Degrade-the-version-of-flex-found-necessary-in-OpenFOAM-3-0-0" class="headerlink" title="3. Degrade the version of flex (found necessary in OpenFOAM-3.0.0)"></a>3. Degrade the version of flex (found necessary in OpenFOAM-3.0.0)</h2><p>Type in the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install flex-old</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-Install-OpenFOAM-with-normal-process"><a href="#4-Install-OpenFOAM-with-normal-process" class="headerlink" title="4. Install OpenFOAM with normal process"></a>4. Install OpenFOAM with normal process</h2><p>Methods of installing OpenFOAM by compilation can be found in <a href="http://openfoamwiki.net/index.php/Category:Installing_OpenFOAM_on_Linux" target="_blank" rel="noopener">OpenFOAM-Wiki</a></p>
+<h1 id="Error-‘yywrap’-when-compiling-OpenFOAM-3-0-0"><a href="#Error-‘yywrap’-when-compiling-OpenFOAM-3-0-0" class="headerlink" title="Error: ‘yywrap’ when compiling OpenFOAM-3.0.0"></a>Error: ‘yywrap’ when compiling OpenFOAM-3.0.0</h1><p>It is mainly the problem of the version of flex, try degrading flex with the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install flex-old</span><br></pre></td></tr></table></figure></p>
+<h1 id="Error-‘parent-directory-does-not-allow-write-permission’-when-compiling-Thirdparty"><a href="#Error-‘parent-directory-does-not-allow-write-permission’-when-compiling-Thirdparty" class="headerlink" title="Error: ‘parent directory does not allow write permission’ when compiling Thirdparty"></a>Error: ‘parent directory does not allow write permission’ when compiling Thirdparty</h1><p>It is the problem of access permission, just upgrade the privilege by:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(id-un):$(id-gn) $WM_PROJECT_USER_DIR</span><br><span class="line">echo $WM_PROJECT_USER_DIR</span><br></pre></td></tr></table></figure></p>
+<h1 id="Install-PyFoam"><a href="#Install-PyFoam" class="headerlink" title="Install PyFoam"></a>Install PyFoam</h1><h2 id="1-Install-the-python-numpy"><a href="#1-Install-the-python-numpy" class="headerlink" title="1. Install the python-numpy"></a>1. Install the python-numpy</h2><p>Type in the following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python-numpy</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Download-the-up-to-date-version-of-PyFoam"><a href="#2-Download-the-up-to-date-version-of-PyFoam" class="headerlink" title="2. Download the up-to-date version of PyFoam"></a>2. Download the up-to-date version of PyFoam</h2><p>It can be found in <a href="http://openfoamwiki.net/index.php/Contrib/PyFoam#Installed_Utilities" target="_blank" rel="noopener">OpenFOAM-Wiki</a></p>
+<h2 id="3-Final-installation"><a href="#3-Final-installation" class="headerlink" title="3. Final installation"></a>3. Final installation</h2><p>Open the PyFoam folder and type in the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python setup.py install</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -373,15 +380,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/20/Writing-Blog-with-Hexo/" rel="next" title="Writing Blog with Hexo">
+                <i class="fa fa-chevron-left"></i> Writing Blog with Hexo
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/20/Writing-Blog-with-Hexo/" rel="prev" title="Writing Blog with Hexo">
-                Writing Blog with Hexo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -495,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Declaration"><span class="nav-number">1.</span> <span class="nav-text">Declaration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-Contents"><span class="nav-number">2.</span> <span class="nav-text">Main Contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Personal-Information"><span class="nav-number">3.</span> <span class="nav-text">Personal Information</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installing-old-version-of-OpenFOAM-on-new-version-of-Ubuntu"><span class="nav-number">1.</span> <span class="nav-text">Installing old version of OpenFOAM on new version of Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Degrade-the-version-of-gcc-gcc-4-8-is-used-for-example"><span class="nav-number">1.1.</span> <span class="nav-text">1. Degrade the version of gcc (gcc-4.8 is used for example)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Degrade-the-version-of-g"><span class="nav-number">1.2.</span> <span class="nav-text">2. Degrade the version of g++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Degrade-the-version-of-flex-found-necessary-in-OpenFOAM-3-0-0"><span class="nav-number">1.3.</span> <span class="nav-text">3. Degrade the version of flex (found necessary in OpenFOAM-3.0.0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Install-OpenFOAM-with-normal-process"><span class="nav-number">1.4.</span> <span class="nav-text">4. Install OpenFOAM with normal process</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-‘yywrap’-when-compiling-OpenFOAM-3-0-0"><span class="nav-number">2.</span> <span class="nav-text">Error: ‘yywrap’ when compiling OpenFOAM-3.0.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-‘parent-directory-does-not-allow-write-permission’-when-compiling-Thirdparty"><span class="nav-number">3.</span> <span class="nav-text">Error: ‘parent directory does not allow write permission’ when compiling Thirdparty</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-PyFoam"><span class="nav-number">4.</span> <span class="nav-text">Install PyFoam</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Install-the-python-numpy"><span class="nav-number">4.1.</span> <span class="nav-text">1. Install the python-numpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Download-the-up-to-date-version-of-PyFoam"><span class="nav-number">4.2.</span> <span class="nav-text">2. Download the up-to-date version of PyFoam</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Final-installation"><span class="nav-number">4.3.</span> <span class="nav-text">3. Final installation</span></a></li></ol></li></ol></div>
             
 
           </div>
