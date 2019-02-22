@@ -99,24 +99,24 @@
 
 
 
-  <meta name="description" content="A summary of FAQ that I met when installing OpenFOAM and third parties is made here.">
+  <meta name="description" content="I have written a series of codes to monitor the results of OpenFOAM including the 6DOF results and the Residuals on the fly. These codes run based on the installation of gnuplot(self-contain in ubuntu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Summary of OpenFOAM Installation FAQ">
-<meta property="og:url" content="http://yoursite.com/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/index.html">
+<meta property="og:title" content="Monitoring the Results of OpenFOAM on the fly">
+<meta property="og:url" content="http://yoursite.com/2019/02/22/Monitor-the-Results-of-OpenFOAM-on-the-run/index.html">
 <meta property="og:site_name" content="JXJ Blog">
-<meta property="og:description" content="A summary of FAQ that I met when installing OpenFOAM and third parties is made here.">
+<meta property="og:description" content="I have written a series of codes to monitor the results of OpenFOAM including the 6DOF results and the Residuals on the fly. These codes run based on the installation of gnuplot(self-contain in ubuntu">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-01-20T13:16:06.228Z">
+<meta property="og:updated_time" content="2019-02-22T12:45:52.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Summary of OpenFOAM Installation FAQ">
-<meta name="twitter:description" content="A summary of FAQ that I met when installing OpenFOAM and third parties is made here.">
+<meta name="twitter:title" content="Monitoring the Results of OpenFOAM on the fly">
+<meta name="twitter:description" content="I have written a series of codes to monitor the results of OpenFOAM including the 6DOF results and the Residuals on the fly. These codes run based on the installation of gnuplot(self-contain in ubuntu">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/22/Monitor-the-Results-of-OpenFOAM-on-the-run/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>Summary of OpenFOAM Installation FAQ | JXJ Blog</title>
+  <title>Monitoring the Results of OpenFOAM on the fly | JXJ Blog</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/22/Monitor-the-Results-of-OpenFOAM-on-the-run/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ji Xinjie">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Summary of OpenFOAM Installation FAQ</h1>
+          <h1 class="post-title" itemprop="name headline">Monitoring the Results of OpenFOAM on the fly</h1>
         
 
         <div class="post-meta">
@@ -304,7 +304,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-20T20:28:26+08:00">2019-01-20</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-22T16:05:49+08:00">2019-02-22</time>
             
 
             
@@ -341,18 +341,24 @@
       
 
       
-        <p>A summary of FAQ that I met when installing OpenFOAM and third parties is made here. <a id="more"></a></p>
-<h1 id="Installing-old-version-of-OpenFOAM-on-new-version-of-Ubuntu"><a href="#Installing-old-version-of-OpenFOAM-on-new-version-of-Ubuntu" class="headerlink" title="Installing old version of OpenFOAM on new version of Ubuntu"></a>Installing old version of OpenFOAM on new version of Ubuntu</h1><h2 id="1-Degrade-the-version-of-gcc-gcc-4-8-is-used-for-example"><a href="#1-Degrade-the-version-of-gcc-gcc-4-8-is-used-for-example" class="headerlink" title="1. Degrade the version of gcc (gcc-4.8 is used for example)"></a>1. Degrade the version of gcc (gcc-4.8 is used for example)</h2><p>Firstly, install gcc-4.8 with the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install gcc-4.8</span><br></pre></td></tr></table></figure></p>
-<p>Secondly, set the default gcc version:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ gcc --version </span><br><span class="line"># view the current gcc version</span><br><span class="line"></span><br><span class="line">$ ls /usr/bin/gcc* </span><br><span class="line"># view the gcc versions that we have</span><br><span class="line"></span><br><span class="line">$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 100</span><br><span class="line"># Raise the priority of gcc-4.8 to 100</span><br><span class="line"></span><br><span class="line">$ sudo update-alternatives --config gcc</span><br></pre></td></tr></table></figure></p>
-<p>That’s all. We can type in <code>gcc --version</code> again to make sure the version of gcc is degraded.</p>
-<h2 id="2-Degrade-the-version-of-g"><a href="#2-Degrade-the-version-of-g" class="headerlink" title="2. Degrade the version of g++"></a>2. Degrade the version of g++</h2><p>Just refer to the method of degrading gcc and replace all the ‘gcc’ with ‘g++’.</p>
-<h2 id="3-Degrade-the-version-of-flex-found-necessary-in-OpenFOAM-3-0-0"><a href="#3-Degrade-the-version-of-flex-found-necessary-in-OpenFOAM-3-0-0" class="headerlink" title="3. Degrade the version of flex (found necessary in OpenFOAM-3.0.0)"></a>3. Degrade the version of flex (found necessary in OpenFOAM-3.0.0)</h2><p>Type in the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install flex-old</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-Install-OpenFOAM-with-normal-process"><a href="#4-Install-OpenFOAM-with-normal-process" class="headerlink" title="4. Install OpenFOAM with normal process"></a>4. Install OpenFOAM with normal process</h2><p>Methods of installing OpenFOAM by compilation can be found in <a href="http://openfoamwiki.net/index.php/Category:Installing_OpenFOAM_on_Linux" target="_blank" rel="noopener">OpenFOAM-Wiki</a></p>
-<h1 id="Error-‘yywrap’-when-compiling-OpenFOAM-3-0-0"><a href="#Error-‘yywrap’-when-compiling-OpenFOAM-3-0-0" class="headerlink" title="Error: ‘yywrap’ when compiling OpenFOAM-3.0.0"></a>Error: ‘yywrap’ when compiling OpenFOAM-3.0.0</h1><p>It is mainly the problem of the version of flex, try degrading flex with the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install flex-old</span><br></pre></td></tr></table></figure></p>
-<h1 id="Error-‘parent-directory-does-not-allow-write-permission’-when-compiling-Thirdparty"><a href="#Error-‘parent-directory-does-not-allow-write-permission’-when-compiling-Thirdparty" class="headerlink" title="Error: ‘parent directory does not allow write permission’ when compiling Thirdparty"></a>Error: ‘parent directory does not allow write permission’ when compiling Thirdparty</h1><p>It is the problem of access permission, just upgrade the privilege by:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(id-un):$(id-gn) $WM_PROJECT_USER_DIR</span><br><span class="line">echo $WM_PROJECT_USER_DIR</span><br></pre></td></tr></table></figure></p>
-<h1 id="Install-PyFoam"><a href="#Install-PyFoam" class="headerlink" title="Install PyFoam"></a>Install PyFoam</h1><h2 id="1-Install-the-python-numpy"><a href="#1-Install-the-python-numpy" class="headerlink" title="1. Install the python-numpy"></a>1. Install the python-numpy</h2><p>Type in the following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python-numpy</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-Download-the-up-to-date-version-of-PyFoam"><a href="#2-Download-the-up-to-date-version-of-PyFoam" class="headerlink" title="2. Download the up-to-date version of PyFoam"></a>2. Download the up-to-date version of PyFoam</h2><p>It can be found in <a href="http://openfoamwiki.net/index.php/Contrib/PyFoam#Installed_Utilities" target="_blank" rel="noopener">OpenFOAM-Wiki</a></p>
-<h2 id="3-Final-installation"><a href="#3-Final-installation" class="headerlink" title="3. Final installation"></a>3. Final installation</h2><p>Open the PyFoam folder and type in the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python setup.py install</span><br></pre></td></tr></table></figure></p>
+        <p>I have written a series of codes to monitor the results of OpenFOAM including the 6DOF results and the Residuals on the fly. These codes run based on the installation of gnuplot(self-contain in ubuntu) and the terminal of ubuntu. Hope to be of useful to you. <a id="more"></a></p>
+<h1 id="Tips-on-the-following-codes"><a href="#Tips-on-the-following-codes" class="headerlink" title="Tips on the following codes"></a>Tips on the following codes</h1><p>Functions of some commands in linux should be understood for rewriting the following codes for your own case.</p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>‘cat’ is a command about text.<br>‘’’<br>cat filename<br>‘’’<br>It means showing the file which is named with “filename”.</p>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>‘grep’ can search for the key words and pick the whole lines which have these words.<br>Example:<br>‘’’<br>grep ‘key words’<br>‘’’</p>
+<h2 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h2><p>‘cut’ can be used to cut some words from the lines above.<br>Example:<br>‘’’<br>cut -d ‘ ‘ -f9<br>‘’’<br>It divides a whole line into several parts based on the blank(function of ‘-d’), then pick the 9th part(function of -f).</p>
+<h2 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h2><p>‘tr’ is used to modify words.<br>Example:<br>‘’’<br>tr -d ‘,’<br>‘’’<br>It means deleting all commas in the words(function of -d).</p>
+<h1 id="Monior-the-residuals"><a href="#Monior-the-residuals" class="headerlink" title="Monior the residuals"></a>Monior the residuals</h1><p>The method of monitoring residuals is mainly based on the <a href="https://www.cfd-online.com/Forums/openfoam-community-contributions/64146-tutorial-how-plot-residuals.html" target="_blank" rel="noopener">tutorial</a> published by Wolfgang Heydlauff.</p>
+<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>Start calculation and make it write out a log-file.<br>Example:<br>‘’’<br>simpleFoam &gt; mpirun.log<br>‘’’<br>‘mpirun.log’ is the name</p>
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>Create a text file in the main-case-folder with a name “Residuals”.<br>Copy the following codes into the file:<br>‘’’</p>
+<p>‘’’</p>
+<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>Execute the command:<br>‘’’<br>gnuplot Residuals -<br>‘’’<br>in the main-case-folder.</p>
+<h1 id="Monitor-the-6DOF-outputs"><a href="#Monitor-the-6DOF-outputs" class="headerlink" title="Monitor the 6DOF outputs"></a>Monitor the 6DOF outputs</h1><p>Here is the codes that I written by myself based on the codes above. They are a bit of prolix but helpful.</p>
+<h2 id="Step-1-1"><a href="#Step-1-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>Same as the step 1 mentioned above.</p>
+<h2 id="Step-2-1"><a href="#Step-2-1" class="headerlink" title="Step 2"></a>Step 2</h2><p>Copy the following codes into a text file named “plot” in the main-case-folder.<br>‘’’</p>
+<p>‘’’</p>
+<h2 id="Step-3-1"><a href="#Step-3-1" class="headerlink" title="Step 3"></a>Step 3</h2><p>Copy the following codes into a text file named “6DOF” in the main-case-folder.<br>‘’’</p>
+<p>‘’’<br>The example only outputs parts of the 6DOF results, anyone can modify the codes based on the tips I offered and some konwledge of gunuplot.</p>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><p>Execute the command:<br>‘’’<br>gnuplot 6DOF -<br>‘’’<br>in the main-case-folder.</p>
 
       
     </div>
@@ -380,14 +386,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/" rel="next" title="Summary of OpenFOAM Installation FAQ">
+                <i class="fa fa-chevron-left"></i> Summary of OpenFOAM Installation FAQ
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/22/Monitor-the-Results-of-OpenFOAM-on-the-run/" rel="prev" title="Monitoring the Results of OpenFOAM on the fly">
-                Monitoring the Results of OpenFOAM on the fly <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/22/hello-world/" rel="prev" title="Hello World !">
+                Hello World ! <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -502,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installing-old-version-of-OpenFOAM-on-new-version-of-Ubuntu"><span class="nav-number">1.</span> <span class="nav-text">Installing old version of OpenFOAM on new version of Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Degrade-the-version-of-gcc-gcc-4-8-is-used-for-example"><span class="nav-number">1.1.</span> <span class="nav-text">1. Degrade the version of gcc (gcc-4.8 is used for example)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Degrade-the-version-of-g"><span class="nav-number">1.2.</span> <span class="nav-text">2. Degrade the version of g++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Degrade-the-version-of-flex-found-necessary-in-OpenFOAM-3-0-0"><span class="nav-number">1.3.</span> <span class="nav-text">3. Degrade the version of flex (found necessary in OpenFOAM-3.0.0)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Install-OpenFOAM-with-normal-process"><span class="nav-number">1.4.</span> <span class="nav-text">4. Install OpenFOAM with normal process</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-‘yywrap’-when-compiling-OpenFOAM-3-0-0"><span class="nav-number">2.</span> <span class="nav-text">Error: ‘yywrap’ when compiling OpenFOAM-3.0.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-‘parent-directory-does-not-allow-write-permission’-when-compiling-Thirdparty"><span class="nav-number">3.</span> <span class="nav-text">Error: ‘parent directory does not allow write permission’ when compiling Thirdparty</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-PyFoam"><span class="nav-number">4.</span> <span class="nav-text">Install PyFoam</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Install-the-python-numpy"><span class="nav-number">4.1.</span> <span class="nav-text">1. Install the python-numpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Download-the-up-to-date-version-of-PyFoam"><span class="nav-number">4.2.</span> <span class="nav-text">2. Download the up-to-date version of PyFoam</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Final-installation"><span class="nav-number">4.3.</span> <span class="nav-text">3. Final installation</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tips-on-the-following-codes"><span class="nav-number">1.</span> <span class="nav-text">Tips on the following codes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cat"><span class="nav-number">1.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep"><span class="nav-number">1.2.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cut"><span class="nav-number">1.3.</span> <span class="nav-text">cut</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tr"><span class="nav-number">1.4.</span> <span class="nav-text">tr</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Monior-the-residuals"><span class="nav-number">2.</span> <span class="nav-text">Monior the residuals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-1"><span class="nav-number">2.1.</span> <span class="nav-text">Step 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-2"><span class="nav-number">2.2.</span> <span class="nav-text">Step 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-3"><span class="nav-number">2.3.</span> <span class="nav-text">Step 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Monitor-the-6DOF-outputs"><span class="nav-number">3.</span> <span class="nav-text">Monitor the 6DOF outputs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-1-1"><span class="nav-number">3.1.</span> <span class="nav-text">Step 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-2-1"><span class="nav-number">3.2.</span> <span class="nav-text">Step 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-3-1"><span class="nav-number">3.3.</span> <span class="nav-text">Step 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-4"><span class="nav-number">3.4.</span> <span class="nav-text">Step 4</span></a></li></ol></li></ol></div>
             
 
           </div>
