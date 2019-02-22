@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="JXJ Blog">
 <meta property="og:description" content="I have written a series of codes to monitor the results of OpenFOAM including the 6DOF results and the Residuals on the fly. These codes run based on the installation of gnuplot(self-contain in ubuntu">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2019-02-22T12:45:52.530Z">
+<meta property="og:updated_time" content="2019-02-22T12:52:07.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monitoring the Results of OpenFOAM on the fly">
 <meta name="twitter:description" content="I have written a series of codes to monitor the results of OpenFOAM including the 6DOF results and the Residuals on the fly. These codes run based on the installation of gnuplot(self-contain in ubuntu">
@@ -343,22 +343,26 @@
       
         <p>I have written a series of codes to monitor the results of OpenFOAM including the 6DOF results and the Residuals on the fly. These codes run based on the installation of gnuplot(self-contain in ubuntu) and the terminal of ubuntu. Hope to be of useful to you. <a id="more"></a></p>
 <h1 id="Tips-on-the-following-codes"><a href="#Tips-on-the-following-codes" class="headerlink" title="Tips on the following codes"></a>Tips on the following codes</h1><p>Functions of some commands in linux should be understood for rewriting the following codes for your own case.</p>
-<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>‘cat’ is a command about text.<br>‘’’<br>cat filename<br>‘’’<br>It means showing the file which is named with “filename”.</p>
-<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>‘grep’ can search for the key words and pick the whole lines which have these words.<br>Example:<br>‘’’<br>grep ‘key words’<br>‘’’</p>
-<h2 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h2><p>‘cut’ can be used to cut some words from the lines above.<br>Example:<br>‘’’<br>cut -d ‘ ‘ -f9<br>‘’’<br>It divides a whole line into several parts based on the blank(function of ‘-d’), then pick the 9th part(function of -f).</p>
-<h2 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h2><p>‘tr’ is used to modify words.<br>Example:<br>‘’’<br>tr -d ‘,’<br>‘’’<br>It means deleting all commas in the words(function of -d).</p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p><code>cat</code> is a command about text.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat filename</span><br></pre></td></tr></table></figure></p>
+<p>It means showing the file which is named with “filename”.</p>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p><code>grep</code> can search for the key words and pick the whole lines which have these words.<br>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;key words&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h2><p><code>cut</code> can be used to cut some words from the lines above.<br>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut -d &apos; &apos; -f9</span><br></pre></td></tr></table></figure></p>
+<p>It divides a whole line into several parts based on the blank(function of ‘-d’), then pick the 9th part(function of -f).</p>
+<h2 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h2><p><code>tr</code> is used to modify words.<br>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tr -d &apos;,&apos;</span><br></pre></td></tr></table></figure></p>
+<p>It means deleting all commas in the words(function of -d).</p>
 <h1 id="Monior-the-residuals"><a href="#Monior-the-residuals" class="headerlink" title="Monior the residuals"></a>Monior the residuals</h1><p>The method of monitoring residuals is mainly based on the <a href="https://www.cfd-online.com/Forums/openfoam-community-contributions/64146-tutorial-how-plot-residuals.html" target="_blank" rel="noopener">tutorial</a> published by Wolfgang Heydlauff.</p>
-<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>Start calculation and make it write out a log-file.<br>Example:<br>‘’’<br>simpleFoam &gt; mpirun.log<br>‘’’<br>‘mpirun.log’ is the name</p>
-<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>Create a text file in the main-case-folder with a name “Residuals”.<br>Copy the following codes into the file:<br>‘’’</p>
-<p>‘’’</p>
-<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>Execute the command:<br>‘’’<br>gnuplot Residuals -<br>‘’’<br>in the main-case-folder.</p>
+<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>Start calculation and make it write out a log-file.<br>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simpleFoam &gt; mpirun.log</span><br></pre></td></tr></table></figure></p>
+<p><code>mpirun.log</code> is the name</p>
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>Create a text file in the main-case-folder with a name “Residuals”.<br>Copy the following codes into the file:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>Execute the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gnuplot Residuals -</span><br></pre></td></tr></table></figure></p>
+<p>in the main-case-folder.</p>
 <h1 id="Monitor-the-6DOF-outputs"><a href="#Monitor-the-6DOF-outputs" class="headerlink" title="Monitor the 6DOF outputs"></a>Monitor the 6DOF outputs</h1><p>Here is the codes that I written by myself based on the codes above. They are a bit of prolix but helpful.</p>
 <h2 id="Step-1-1"><a href="#Step-1-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>Same as the step 1 mentioned above.</p>
-<h2 id="Step-2-1"><a href="#Step-2-1" class="headerlink" title="Step 2"></a>Step 2</h2><p>Copy the following codes into a text file named “plot” in the main-case-folder.<br>‘’’</p>
-<p>‘’’</p>
-<h2 id="Step-3-1"><a href="#Step-3-1" class="headerlink" title="Step 3"></a>Step 3</h2><p>Copy the following codes into a text file named “6DOF” in the main-case-folder.<br>‘’’</p>
-<p>‘’’<br>The example only outputs parts of the 6DOF results, anyone can modify the codes based on the tips I offered and some konwledge of gunuplot.</p>
-<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><p>Execute the command:<br>‘’’<br>gnuplot 6DOF -<br>‘’’<br>in the main-case-folder.</p>
+<h2 id="Step-2-1"><a href="#Step-2-1" class="headerlink" title="Step 2"></a>Step 2</h2><p>Copy the following codes into a text file named “plot” in the main-case-folder.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h2 id="Step-3-1"><a href="#Step-3-1" class="headerlink" title="Step 3"></a>Step 3</h2><p>Copy the following codes into a text file named “6DOF” in the main-case-folder.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>The example only outputs parts of the 6DOF results, anyone can modify the codes based on the tips I offered and some konwledge of gunuplot.</p>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><p>Execute the command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gnuplot 6DOF -</span><br></pre></td></tr></table></figure></p>
+<p>in the main-case-folder.</p>
 
       
     </div>
@@ -386,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/20/Summary-of-OpenFOAM-Installation-FAQ/" rel="next" title="Summary of OpenFOAM Installation FAQ">
-                <i class="fa fa-chevron-left"></i> Summary of OpenFOAM Installation FAQ
+              <a href="/2019/01/22/Writing-Blog-with-Hexo/" rel="next" title="Writing Blog with Hexo">
+                <i class="fa fa-chevron-left"></i> Writing Blog with Hexo
               </a>
             
           </div>
@@ -395,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/22/Writing-Blog-with-Hexo/" rel="prev" title="Writing Blog with Hexo">
-                Writing Blog with Hexo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
